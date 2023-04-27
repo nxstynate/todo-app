@@ -1,4 +1,4 @@
-# React App
+# React Todo App
 
 - Typescript
 - React
