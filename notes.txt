@@ -1,0 +1,42 @@
+To Do App in React:
+1. Create a simple to-do list app with TypeScript and React. Users should be able to add new items, mark items as complete, and delete items
+
+Task List 
+  Title 
+  Task
+    Task Title 
+    Mark / Check Complete
+    Description Fold Out 
+  Add Task
+  Delete Task 
+
+General Steps: 
+  1. Define the requirements: 
+  - What features do you want to inlcude in the app?
+  - What should the user interface look like? 
+  - How should the app function? 
+
+  2. Sketch out the app's interrface:
+  - Create a rough sketch of the app's interface to help you visualize the layout and design.
+  - Use Figma or Sketch to create the interface. 
+
+  3. Determine the components you need: 
+  - Decide on the components you will need to build the app. Input fields, buttons, and lists.
+
+  4. Plan the data flow.
+  - Determine how you will store and manage the data for the to do list. 
+  - decide on how the data will be passed between components. 
+
+  5. Setup the developemnt environment:
+
+  6. Build the app: 
+  - Start by creating the basic layout and components of the app. 
+  - Implement the dat flow and any necessary logic to manage the to do list. 
+
+  7. Deploy the app: 
+  - netlify, vercel or github pages 
+
+  8. Iterate and Improve: 
+  - gather feedback from users to identify areas for improvement 
+  - Implement any new features or enchancements to the app. 
+
