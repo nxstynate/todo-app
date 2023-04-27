@@ -1,2 +1,5 @@
-React App
-Typescript, React, and Chakra UI
+# React App
+
+- Typescript
+- React
+- ChakraUI
