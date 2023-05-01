@@ -1,6 +1,9 @@
 import {
   Button,
   Input,
+  List,
+  ListIcon,
+  ListItem,
   ScaleFade,
   Stack,
   useDisclosure,
@@ -24,6 +27,12 @@ export default function Item() {
         <Stack direction="row" alignItems="center" spacing={3}></Stack>
         <Input placeholder="Enter task..." size="lg" focusBorderColor="lime" />
       </ScaleFade>
+      <List spacing={3}>
+        <ListItem>
+          <ListIcon color="green.500" />
+          some kind of text to test it make sure it works right
+        </ListItem>
+      </List>
     </>
   );
 }

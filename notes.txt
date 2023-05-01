@@ -40,3 +40,13 @@ General Steps:
   - gather feedback from users to identify areas for improvement 
   - Implement any new features or enchancements to the app. 
 
+
+Task Input Box 
+Button > Input Box > Added Task Item 
+
+Natural Language:
+add item button 
+on click the button reveal an active input box 
+enter information for task 
+on enter inside the input box it changes to a added task on the list 
+new line for an active input box gets added below 
