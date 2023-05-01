@@ -1,10 +1,4 @@
 import {
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
-  Box,
   Button,
   Input,
   ListItem,
@@ -30,51 +24,48 @@ export default function InputBoxTest() {
   const [text, setText] = useState("");
   const { isOpen, onToggle } = useDisclosure();
 
+  const handleClick = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    setText(event.currentTarget.value);
+    if (event.key === "Enter") {
+      setTodos([
+        {
+          id: todos.length,
+          text: text,
+        },
+        ...todos,
+      ]);
+      setText("");
+    }
+  };
+
   return (
     <>
-      <Input value={text} onChange={e => setText(e.target.value)}></Input>
       <Button
         fontSize="1.3rem"
         fontWeight="bold"
         width="10rem"
         colorScheme="blue"
-        onClick={() => {
-          setText("");
-          setTodos([
-            {
-              id: todos.length,
-              text: text,
-            },
-            ...todos,
-          ]);
-        }}
+        onClick={onToggle}
       >
         ADD ITEM
       </Button>
-      <UnorderedList onClick={onToggle}>
+      <ScaleFade initialScale={0.9} in={isOpen}>
+        <Input
+          variant="filled"
+          size="lg"
+          focusBorderColor="lime"
+          placeholder="Enter an item..."
+          value={text}
+          onKeyDown={handleClick}
+        ></Input>
         <ScaleFade initialScale={0.9} in={isOpen}>
-          <Accordion allowMultiple>
-            <AccordionItem>
-              <h2>
-                <AccordionButton _expanded={{ bg: "orange", color: "white" }}>
-                  <Box as="span" flex="1" textAlign="left">
-                    {todos.map(item => (
-                      <ListItem key={item.id}>{item.text}</ListItem>
-                    ))}
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </AccordionPanel>
-            </AccordionItem>
-          </Accordion>
+          <UnorderedList>
+            {todos.map(item => (
+              <ListItem key={item.id}>{item.text}</ListItem>
+            ))}
+          </UnorderedList>
         </ScaleFade>
-      </UnorderedList>
+      </ScaleFade>
     </>
   );
 }

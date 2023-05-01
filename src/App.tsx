@@ -1,4 +1,5 @@
 import "./App.css";
+import TodoList from "./components/InputBoxT";
 import InputBoxTest from "./components/InputBoxTest";
 import Item from "./components/Item";
 import ListItem from "./components/ListItem";
@@ -9,6 +10,8 @@ export default function App() {
     <>
       <Title />
       <InputBoxTest />
+      {/* <ListItem /> */}
+      <TodoList />
     </>
   );
 }
