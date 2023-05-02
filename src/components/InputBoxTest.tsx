@@ -1,14 +1,21 @@
 import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
   Button,
   Input,
-  ListItem,
+  Checkbox,
   ScaleFade,
-  UnorderedList,
+  Stack,
+  Textarea,
   useDisclosure,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
-function createItem() {
+function createItem(): { id: number; text: string }[] {
   const initialTodos = [];
   for (let i = 0; i < 0; i++) {
     initialTodos.push({
@@ -25,7 +32,6 @@ export default function InputBoxTest() {
   const { isOpen, onToggle } = useDisclosure();
 
   const handleClick = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    setText(event.currentTarget.value);
     if (event.key === "Enter") {
       setTodos([
         {
@@ -43,8 +49,9 @@ export default function InputBoxTest() {
       <Button
         fontSize="1.3rem"
         fontWeight="bold"
+        colorScheme="green"
+        variant="outline"
         width="10rem"
-        colorScheme="blue"
         onClick={onToggle}
       >
         ADD ITEM
@@ -53,17 +60,42 @@ export default function InputBoxTest() {
         <Input
           variant="filled"
           size="lg"
-          focusBorderColor="lime"
+          focusBorderColor="green.400"
           placeholder="Enter an item..."
+          marginBottom={8}
           value={text}
+          onChange={event => setText(event.target.value)}
           onKeyDown={handleClick}
         ></Input>
         <ScaleFade initialScale={0.9} in={isOpen}>
-          <UnorderedList>
+          <Accordion allowMultiple>
             {todos.map(item => (
-              <ListItem key={item.id}>{item.text}</ListItem>
+              <AccordionItem key={item.id} paddingBottom={3}>
+                <h2>
+                  <AccordionButton
+                    _expanded={{ bg: "green.400", color: "white" }}
+                  >
+                    <Box as="span" flex="2" textAlign="left">
+                      <Stack>
+                        <Checkbox size="lg" colorScheme="red">
+                          {item.text}
+                        </Checkbox>
+                      </Stack>
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  <Textarea
+                    variant="filled"
+                    size="lg"
+                    focusBorderColor="green.200"
+                    placeholder="Enter an item..."
+                  ></Textarea>
+                </AccordionPanel>
+              </AccordionItem>
             ))}
-          </UnorderedList>
+          </Accordion>
         </ScaleFade>
       </ScaleFade>
     </>
