@@ -1,0 +1,32 @@
+import {
+  Stack,
+  Badge,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Button,
+} from "@chakra-ui/react";
+
+export default function PriorityBadge() {
+  return (
+    <Stack direction="row">
+      <Menu>
+        <MenuButton as={Button} colorScheme="pink" size="8rem">
+          Priority
+        </MenuButton>
+        <MenuList>
+          <MenuItem>
+            <Badge colorScheme="red">A</Badge>
+          </MenuItem>
+          <MenuItem>
+            <Badge colorScheme="orange">B</Badge>
+          </MenuItem>
+          <MenuItem>
+            <Badge colorScheme="yellow">C</Badge>
+          </MenuItem>
+        </MenuList>
+      </Menu>
+    </Stack>
+  );
+}

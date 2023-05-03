@@ -4,7 +4,6 @@ import AppendItem from "./components/AppendItem";
 import Title from "./components/Title";
 
 // Add delete functionality
-// Seperate out the components
 
 export default function App() {
   return (
