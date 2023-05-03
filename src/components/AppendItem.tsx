@@ -75,7 +75,7 @@ export default function AppendItem() {
           onKeyDown={handleEnter}
         ></Input>
       </ScaleFade>
-      <ScaleFade initialScale={0.9} in={isOpen}>
+      <ScaleFade initialScale={0.9} in={isOpen || todos.length > 0}>
         <Accordion allowMultiple>
           {todos.map(item => (
             <AccordionItem key={item.id} paddingBottom={3}>
