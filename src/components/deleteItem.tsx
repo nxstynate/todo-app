@@ -1,4 +1,4 @@
-export function removeItem(): { id: number; text: string }[] {
+export function deleteItem(): { id: number; text: string }[] {
   const initialTodos = [];
   for (let i = 0; i < 0; i++) {
     initialTodos.push({
