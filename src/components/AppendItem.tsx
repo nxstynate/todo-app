@@ -10,20 +10,10 @@ export default function AppendItem() {
   const [todos, setTodos] = useState(createItem);
   const [text, setText] = useState("");
   const { isOpen, onToggle } = useDisclosure();
-  // const [deleteTodos, setDeleteTodos] = useState(deleteItem);
 
-  // const handleDelete = (event: React.MouseEventHandler<HTMLInputElement>) => {
-  //   if (event.key === "onclick") {
-  //     setDeleteTodos([
-  //       {
-  //         id: todos.length,
-  //         text: text,
-  //       },
-  //       ...todos,
-  //     ]);
-  //     setText("");
-  //   }
-  // };
+  const handleDelete = (id: number) => {
+    setTodos(todos.filter(item => item.id !== id));
+  };
 
   const handleEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
@@ -45,7 +35,7 @@ export default function AppendItem() {
         {InputBox(text, setText, handleEnter)}
       </ScaleFade>
       <ScaleFade initialScale={0.9} in={isOpen || todos.length > 0}>
-        {TaskItem(todos)}
+        {TaskItem({ todos, handleDelete })}
       </ScaleFade>
     </>
   );
